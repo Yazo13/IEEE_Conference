@@ -1,0 +1,173 @@
+/* Base Styles */
+* {
+    margin: 0;
+    animation: fadeIn 0.8s ease;
+    font-family: "Space Mono", monospace;
+}
+.top {
+    background-image: linear-gradient(to left, #0f2944, #2775ce);
+    height: 80px;
+    display: flex; 
+    align-items: center; 
+    position: relative; 
+}
+
+.left {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    position: absolute;
+    left: 15px; 
+    z-index: 999;
+}
+
+.center {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.center img {
+    width: 200px;
+    height: auto;
+}
+
+.center span {
+    margin-top: -100px;
+    color: #0a2647;
+}
+
+.RegisterForm {
+    margin-top: -60px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.RegisterForm form {
+    min-width: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.RegisterForm button {
+    width: 150px;
+    font-size: 20px;
+    color: white;
+    background-color: #144272;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0px 2px 10px 0px black;
+}
+
+.RegisterForm button:hover {
+    background-color: #2775ce;
+}
+
+.RegisterForm input {
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid #0a2647;
+    outline: none;
+}
+
+.RegisterForm label {
+    color: #144272;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    /* Adjust center section on smaller screens */
+    .center img {
+        width: 150px;
+    }
+
+    .RegisterForm {
+        font-size: 1.5em; /* Decrease font size */
+    }
+
+    .RegisterForm button {
+        width: 100px; /* Smaller button */
+        font-size: 16px;
+    }
+
+    .left {
+        font-size: 24px; /* Smaller menu button */
+        top: 25px;
+        left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .top {
+        height: 60px; /* Adjust top bar height */
+    }
+
+    .left {
+        font-size: 20px;
+        top: 20px;
+        left: 10px;
+    }
+
+    .center img {
+        width: 120px;
+    }
+
+    .RegisterForm {
+        font-size: 1.2em;
+        
+    }
+
+    .RegisterForm form {
+        display: flex;
+        align-items: center;
+    }
+
+    .RegisterForm button {
+        width: 100px;
+        font-size: 16px;
+        height: 45px;
+    }
+
+    .RegisterForm input {
+        font-size: 16px;
+        width: 70%;
+    }
+
+    .RegisterForm label {
+        font-size: 16px;
+    }
+    .RegisterForm form span{
+        font-size: 16px !important;
+        font-weight: 900;
+    }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://kit.fontawesome.com/a59b9b09ab.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../photos/favIcon.png" />
+    <script src="../index.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="loading">
+      <div class="container">
+        <div class="moon">
+          <div class="crater c1"></div>
+          <div class="crater c2"></div>
+          <div class="crater c3"></div>
+          <div class="crater c4"></div>
+          <div class="crater c5"></div>
+          <div class="shadow"></div>
+          <div class="eye el"></div>
+          <div class="eye er"></div>
+          <div class="mouth"></div>
+          <div class="blush b1"></div>
+          <div class="blush b2"></div>
+        </div>
+        <div class="orbit">
+          <div class="rocket">
+            <div class="window"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <div class="menu-container">
+        <span class="burger-menu" onclick="toggleMenu()">&#9776;</span>
+        <ul class="menu">
+          <li style="margin-left: 170px;">
+            <a id="Main" href="../index.html" onclick="setActiveTab('Main')"
+              >Main</a
+            >
+          </li>
+          <li>
+            <a
+              id="Event"
+              href="../Event/index.html"
+              onclick="setActiveTab('Event')"
+              >Events</a
+            >
+          </li>
+          <li>
+            <a id="About" href="index.html" onclick="setActiveTab('About')"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              id="Research"
+              href="../Research/index.html"
+              onclick="setActiveTab('Research')"
+              >Research Papers</a
+            >
+          </li>
+        </ul>
+        <ul class="register">
+          <li><a id="Username" href="../login_page/index.html">Login</a></li>
+          <li>
+            <a href="../register/index.html" class="Register" id="box1"
+              >Register</a
+            >
+            <div id="box2">
+              <a href="./index.html" class="Register1">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-us-section">
+        <div class="about-item">
+          <h2>Our Purpose</h2>
+          <p>
+            The conference brings together experts, researchers, and enthusiasts
+            to discuss global challenges and innovative solutions for a
+            sustainable future.
+          </p>
+        </div>
+
+        <div class="about-item">
+          <h2>History</h2>
+          <p>
+            Since 2005, this annual conference has provided a platform for
+            thought leadership, networking, and sharing groundbreaking research.
+            Over the years, it has grown into one of the most anticipated events
+            in sustainability and climate action.
+          </p>
+        </div>
+
+        <div class="about-item">
+          <h2>Key Topics</h2>
+          <ul class="topics-list">
+            <li><span>🌍</span> Sustainability</li>
+            <li><span>⚡</span> Renewable Energy</li>
+            <li><span>🌱</span> Environmental Conservation</li>
+            <li><span>🔬</span> Climate Action</li>
+            <li><span>🤝</span> Global Collaboration</li>
+          </ul>
+        </div>
+
+        <div class="about-item">
+          <h2>Our Mission</h2>
+          <p>
+            Our mission is to inspire collective action, drive scientific
+            research, and foster meaningful collaboration to tackle today’s most
+            pressing environmental issues.
+          </p>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: info@climateconf2024.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Location: Coimbra, Portugal</p>
+          </div>
+
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Main</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul>
+              <li>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section newsletter">
+            <h4>Subscribe to Our Newsletter</h4>
+            <form action="#">
+              <input type="email" placeholder="Your Email" required />
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2024 Annual Climate Conference. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script>
+    /// Loading screen logic
+    document.addEventListener("DOMContentLoaded", function () {
+      let loading = document.getElementById("loading");
+      let main = document.getElementById("main");
+
+      loading.style.display = "block";
+      main.style.display = "none";
+
+      setTimeout(() => {
+        loading.style.display = "none";
+        main.style.display = "block";
+      }, 600);
+    });
+  </script>
+</html>

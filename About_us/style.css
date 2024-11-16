@@ -1,0 +1,48 @@
+.about-us-section {
+    padding: 40px;
+    background-color: #f3f3f3;
+    color: #333;
+    line-height: 1.6;
+}
+
+.about-item {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.about-item h2 {
+    color: #144272;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.about-item p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.topics-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+
+.topics-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topics-list span {
+    font-size: 24px;
+    color: #0a2647;
+}

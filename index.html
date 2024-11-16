@@ -1,0 +1,416 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a59b9b09ab.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <meta name="description" content="Join us at the Annual Climate Conference for discussions on climate solutions and sustainability.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css' rel='stylesheet' />
+    <link rel="icon" type="image/x-icon" href="./photos/favIcon.png">
+
+    <title>IEEE Conference</title>
+</head>
+<body>
+  
+<div id="loading">
+  <div class="container">
+    <div class="moon">
+      <div class="crater c1"></div>
+      <div class="crater c2"></div>
+      <div class="crater c3"></div>
+      <div class="crater c4"></div>
+      <div class="crater c5"></div>
+      <div class="shadow"></div>
+      <div class="eye el"></div>
+      <div class="eye er"></div>
+      <div class="mouth"></div>
+      <div class="blush b1"></div>
+      <div class="blush b2"></div>
+    </div>
+    <div class="orbit">
+      <div class="rocket">
+        <div class="window"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main">
+  <div class="menu-container">
+    <span class="burger-menu" onclick="toggleMenu()">&#9776;</span>
+    <ul class="menu">
+        <li style="margin-left: 170px;"><a id="Main" href="index.html" onclick="setActiveTab('Main')">Main</a></li>
+        <li><a id="Event" href="./Event/index.html" onclick="setActiveTab('Event')">Events</a></li>
+        <li><a id="About" href="./About_us/index.html" onclick="setActiveTab('About')">About Us</a></li>
+        <li><a id="Research" href="./Research/index.html" onclick="setActiveTab('Research')">Research Papers</a></li>
+    </ul>
+    <ul class="register">
+      <li><a id="Username" href="./login_page/index.html">Login</a></li>
+      <li>
+          <a href="./register/index.html" class="Register" id="box1">Register</a>
+          <div id="box2">
+              <a href="./index.html" class="Register1">Logout</a>
+          </div>
+      </li>
+  </ul>
+</div>
+
+
+<div class="wrapper">
+  <input type="radio" name="slide" id="slide1" checked>
+  <input type="radio" name="slide" id="slide2">
+  <input type="radio" name="slide" id="slide3">
+  <input type="radio" name="slide" id="slide4">
+  <input type="radio" name="slide" id="slide5">
+
+  <div class="img img-1">
+    <img src="./photos/images/networking.jpg" alt="">
+  </div>
+  <div class="img img-2">
+    <img src="./photos/images/convention_center.jpg" alt="">
+  </div>
+  <div class="img img-3">
+    <img src="./photos/images/networking.jpg" alt="">
+  </div>
+  <div class="img img-4">
+    <img src="./photos/images/presentation1.jpg" alt="">
+  </div>
+  <div class="img img-5">
+    <img src="./photos/images/presentation2.png" alt="">
+  </div>
+
+  <div class="sliders">
+    <label for="slide1" class="one"></label>
+    <label for="slide2" class="two"></label>
+    <label for="slide3" class="three"></label>
+    <label for="slide4" class="four"></label>
+    <label for="slide5" class="five"></label>
+  </div>
+</div>
+    <h2 id="cover" style="margin-left: 20px;">Event Information</h2>
+    <br>
+    
+    <div class="Event"> 
+        Dates: June 20-22, 2024 <br>
+
+        Main Theme: "Climate Solutions for a Sustainable Future"<hr style="border-color: black;">
+
+        The Annual Climate Conference brings together experts, 
+        researchers, and industry leaders to discuss pressing issues
+         in climate science and sustainable solutions. Join us in Berlin 
+         to be part of the conversation that shapes the future.
+    </div>
+
+    <br>
+    <section id="conference-schedule">
+        <h2 style="margin-left: 20px">Conference Schedule</h2>
+        <div class="schedule-tabs">
+          <button onclick="showSchedule('day1')">Day 1</button>
+          <button onclick="showSchedule('day2')">Day 2</button>
+        </div>
+      
+        <div id="day1" class="schedule-content">
+          <table>
+            <tr>
+              <th class="first-th">Time</th>
+              <th>Session</th>
+              <th class="last-th">Location</th>
+            </tr>
+            <tr>
+              <td>9:00 AM</td>
+              <td>Opening Keynote: Climate Change and Global Impact</td>
+              <td>Main Auditorium, Lisbon</td>
+            </tr>
+            <tr>
+              <td>11:00 AM</td>
+              <td>Workshop: Renewable Energy Innovations</td>
+              <td>Room A, Lisbon</td>
+            </tr>
+            <tr>
+              <td>1:00 PM</td>
+              <td>Lunch Break</td>
+              <td>Cafeteria, Lisbon</td>
+            </tr>
+            <tr>
+              <td>2:00 PM</td>
+              <td>Panel: Climate Resilience Strategies</td>
+              <td>Main Auditorium, Lisbon</td>
+            </tr>
+            <tr>
+              <td>4:00 PM</td>
+              <td>Networking Event</td>
+              <td>Outdoor Lounge, Lisbon</td>
+            </tr>
+          </table>
+        </div>
+      
+        <!-- Schedule content for Day 2 -->
+        <div id="day2" class="schedule-content" style="display: none;">
+          <table>
+            <tr>
+              <th class="first-th">Time</th>
+              <th>Session</th>
+              <th class="last-th">Location</th>
+            </tr>
+            <tr>
+              <td>10:00 AM</td>
+              <td>Keynote: Policy Solutions for Climate Action</td>
+              <td>Main Auditorium, Lisbon</td>
+            </tr>
+            <tr>
+              <td>11:30 AM</td>
+              <td>Workshop: Carbon Capture and Storage Techniques</td>
+              <td>Room B, Lisbon</td>
+            </tr>
+            <tr>
+              <td>1:00 PM</td>
+              <td>Lunch Break</td>
+              <td>Cafeteria, Lisbon</td>
+            </tr>
+            <tr>
+              <td>2:30 PM</td>
+              <td>Panel: Community-Led Climate Initiatives</td>
+              <td>Main Auditorium, Lisbon</td>
+            </tr>
+            <tr>
+              <td>5:00 PM</td>
+              <td>Closing Remarks</td>
+              <td>Main Auditorium, Lisbon</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <div class="conference-section">
+        <h1>About the Conference</h1>
+        <p>The Annual Climate Conference 2024 brings together experts, professionals, and enthusiasts from around the world to explore innovative solutions in "Climate Solutions for a Sustainable Future". 
+          Join us in ISEC from June 20-22, 2024 as we address current challenges, share knowledge, and collaborate for a better future.</p> <br>
+    
+        <!-- Location and Dates -->
+        <div class="conference-info">
+            <h2>Location & Dates</h2>
+            <p><strong>Location:</strong> ISEC, Coimbra, Portugal</p>
+            <p><strong>Dates:</strong> June 20-22, 2024</p>
+            <p>Explore the beautiful surroundings of Coimbra and enjoy the Nature.</p>
+        </div>
+    
+        <!-- Main Theme -->
+        <div class="conference-theme">
+            <h2>Main Theme</h2>
+            <p>This year’s theme, <strong>"Climate Solutions for a Sustainable Future"</strong>, focuses on The Annual Climate Conference brings together experts, researchers, and industry leaders to discuss pressing issues in climate science and sustainable solutions. Join us in Coimbra to be part of the conversation that shapes the future.. 
+              We aim to address key challenges in sustainability, innovation, and global collaboration.</p>
+        </div>
+    
+        <!-- Organizing Committee -->
+        <div class="organizing-committee">
+            <h2>Organizing Committee</h2>
+            <ul>
+                <li><strong>Chairperson:</strong> Dr. Emily Wong </li>
+                <li><strong>Event Director:</strong> Prof. Alex Johnson</li>
+                <li><strong>Logistics Head:</strong> Dr. Sarah Lee </li>
+            </ul>
+        </div>
+    
+        <!-- Technical Committee -->
+        <div class="technical-committee">
+            <h2>Technical Committee</h2>
+            <ul>
+                <li><strong>Head of Research:</strong> Dr. Liam Carter</li>
+                <li><strong>Technical Consultant:</strong> Prof. Rachel Greene</li>
+                <li><strong>Speaker Coordinator:</strong> Dr. Omar Nasser</li>
+            </ul>
+        </div>
+    
+        <!-- Sponsors -->
+        <div class="sponsors">
+            <h2>Sponsors</h2>
+            <div class="sponsor-logos">
+                <img src="./photos/sponsor1.jpg" alt="Sponsor 1">
+                <img src="./photos/sponsor2.jpg" alt="Sponsor 2">
+                <img src="./photos/sponsor3.jpg" alt="Sponsor 3">
+            </div>
+        </div>
+    
+        <!-- Past Editions -->
+        <div class="past-editions">
+            <h2>Past Editions</h2>
+            <p>Over the years, the [Conference Name] has hosted distinguished speakers and attendees, tackling significant topics. Highlights include:</p>
+            <ul>
+                <li>2019: [Topic/Highlight, Location, Keynote Speaker]</li>
+                <li>2020: [Topic/Highlight, Location, Keynote Speaker]</li>
+            </ul>
+        </div>
+    </div>
+    
+      <br><br>
+      
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: info@climateconf2024.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Location: Coimbra, Portugal</p>
+          </div>
+          
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Main</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="login.html">Login</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul>
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section newsletter">
+            <h4>Subscribe to Our Newsletter</h4>
+            <form action="#">
+              <input type="email" placeholder="Your Email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>© 2024 Annual Climate Conference. All rights reserved.</p>
+        </div>
+      </footer>
+      <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+      </div>
+</div>
+</body>
+
+<script src="./index.js"></script>
+
+<script>
+  // Schedule changing logic END
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const activeTabId = localStorage.getItem("activeTabId");
+
+    if (activeTabId) {
+      document.getElementById(activeTabId)?.classList.add("active");
+    }
+
+    document.querySelectorAll(".menu a").forEach(tab => {
+      tab.addEventListener("click", function (event) {
+        if (tab.closest('#Resources')) {
+          document.getElementById('Resources').classList.add("active");
+        } else {
+          document.querySelectorAll(".menu a").forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+        }
+
+        localStorage.setItem("activeTabId", tab.id);
+      });
+    });
+  });
+
+  // Photo Slider Logic
+let currentSlide = 1;
+const totalSlides = 5;
+let interval;
+
+function changeSlide() {
+    document.getElementById(`slide${currentSlide}`).checked = true;
+    currentSlide = (currentSlide % totalSlides) + 1;
+}
+
+// Function to reset the interval
+function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(changeSlide, 2000);
+}
+
+// Set up initial interval
+interval = setInterval(changeSlide, 2000);
+
+// Add event listeners to reset the interval when clicking on labels
+document.querySelectorAll('.sliders label').forEach(label => {
+    label.addEventListener('click', resetInterval);
+});
+
+// Keyboard Navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+        resetInterval(); // Reset timer on manual navigation
+        currentSlide = (currentSlide % totalSlides) + 1;
+        document.getElementById(`slide${currentSlide}`).checked = true;
+    } else if (e.key === 'ArrowLeft') {
+        resetInterval(); // Reset timer on manual navigation
+        currentSlide = (currentSlide - 2 + totalSlides) % totalSlides + 1; // Move to previous slide
+        document.getElementById(`slide${currentSlide}`).checked = true;
+    }
+});
+// Photo Sider Logic END
+
+    // Scroll-Up Button Logic
+    const progressWrap = document.querySelector('.progress-wrap');
+    const progressPath = document.querySelector('.progress-wrap path');
+    const pathLength = progressPath.getTotalLength();
+
+    progressPath.style.transition = 'none';
+    progressPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+    progressPath.style.strokeDashoffset = pathLength;
+    progressPath.getBoundingClientRect(); 
+    progressPath.style.transition = 'stroke-dashoffset 10ms linear';
+
+    function updateProgress() {
+      const scrollY = window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = pathLength - (scrollY * pathLength / documentHeight);
+      progressPath.style.strokeDashoffset = progress;
+    }
+
+    updateProgress();
+    window.addEventListener('scroll', function() {
+      updateProgress();
+      if (window.scrollY > 50) {
+        progressWrap.classList.add('active-progress');
+      } else {
+        progressWrap.classList.remove('active-progress');
+      }
+    });
+
+    progressWrap.addEventListener('click', function(event) {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    /// Loading screen logic
+    document.addEventListener("DOMContentLoaded", function () {
+      let loading = document.getElementById("loading");
+      let main = document.getElementById("main");
+    
+      loading.style.display = 'block';
+      main.style.display = 'none';
+    
+      setTimeout(() => {
+        loading.style.display = 'none';
+        main.style.display = 'block';
+      }, 600);
+    })
+
+    
+</script>
+</html>

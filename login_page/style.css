@@ -28,6 +28,11 @@
     left: 15px; 
     z-index: 999;
 }
+.left svg{
+    width: 25px;
+    height: 25px;
+    fill: white;
+}
 .center {
     height: 200px;
     display: flex;
@@ -55,11 +60,9 @@
     align-self: center;
     align-items: center;
     font-size: 2em;
-    margin-bottom: 100px;
 }
 
 .LoginForm form {
-    min-width: 400px;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -144,7 +147,6 @@
     }
 
     .LoginForm form {
-        min-width: 300px; /* Narrower form */
         width: 90%; /* Adapt to screen size */
     }
 
@@ -160,7 +162,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 320px) {
     /* Further adjustments for very small screens */
     .top {
         height: 60px; /* Adjust top bar height */
@@ -173,7 +175,7 @@
     }
 
     .center img {
-        width: 120px;
+        width: 60%;
     }
 
     .LoginForm {
@@ -182,19 +184,23 @@
 
     .LoginForm form {
         width: 90%; /* Form takes most of the screen */
+        align-items: center;
     }
 
     .LoginForm button {
-        width: 100px;
+        width: 80%;
         font-size: 16px;
         height: 45px;
+        word-break: break-all;
     }
 
     .LoginForm input {
         font-size: 18px;
+        width: 80%;
     }
 
     .LoginForm label {
         font-size: 18px;
+        word-break: break-all;
     }
 }

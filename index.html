@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a59b9b09ab.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <meta name="description" content="Join us at the Annual Climate Conference for discussions on climate solutions and sustainability.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,160 +90,85 @@
     <label for="slide5" class="five"></label>
   </div>
 </div>
-    <h2 id="cover" style="margin-left: 20px;">Event Information</h2>
-    <br>
+    <div class="conference-section">
+      <h1>About the Conference</h1>
+      <p>The Annual Climate Conference 2024 brings together experts, professionals, and enthusiasts from around the world to explore innovative solutions in "Climate Solutions for a Sustainable Future." 
+        Join us in ISEC from June 20-22, 2024, as we address current challenges, share knowledge, and collaborate for a better future.</p> <br>
     
-    <div class="Event"> 
-        Dates: June 20-22, 2024 <br>
+      <!-- Location and Dates -->
+      <div class="conference-info">
+        <h2>Location & Dates</h2>
+        <p><strong>Location:</strong> ISEC, Coimbra, Portugal</p>
+        <p><strong>Dates:</strong> June 20-22, 2024</p>
+        <p>Explore the beautiful surroundings of Coimbra and enjoy the nature and historical landmarks.</p>
+      </div>
+    
+      <!-- Main Theme -->
+      <div class="conference-theme">
+        <h2>Main Theme</h2>
+        <p>This year’s theme, <strong>"Climate Solutions for a Sustainable Future"</strong>, focuses on addressing key challenges in sustainability, innovation, and global collaboration. Join us in Coimbra to be part of the conversation that shapes the future of our planet.</p>
+      </div>
+    
+      <!-- Organizing Committee -->
+      <div class="organizing-committee">
+        <h2>Organizing Committee</h2>
+        <ul>
+          <li><strong>Chairperson:</strong> Dr. Emily Wong</li>
+          <li><strong>Event Director:</strong> Prof. Alex Johnson</li>
+          <li><strong>Logistics Head:</strong> Dr. Sarah Lee</li>
+        </ul>
+      </div>
+    
+      <!-- Technical Committee -->
+      <div class="technical-committee">
+        <h2>Technical Committee</h2>
+        <ul>
+          <li><strong>Head of Research:</strong> Dr. Liam Carter</li>
+          <li><strong>Technical Consultant:</strong> Prof. Rachel Greene</li>
+          <li><strong>Speaker Coordinator:</strong> Dr. Omar Nasser</li>
+        </ul>
+      </div>
+    
+      <!-- Sponsors -->
+      <div class="sponsors">
+        <h2>Sponsors</h2>
+        <div class="sponsor-logos">
+          <img src="./photos/sponsor1.jpg" alt="EcoEnergy Solutions">
+          <img src="./photos/sponsor2.jpg" alt="GreenTech Innovations">
+          <img src="./photos/sponsor3.jpg" alt="Future Earth Foundation">
+        </div>
+      </div>
+    
+      <!-- Past Editions -->
+      <div class="past-editions">
+        <h2>Past Editions</h2>
+        <p>Over the years, the Annual Climate Conference has hosted distinguished speakers and attendees, tackling significant topics. Highlights include:</p>
+        <ul>
+          <li>2019: "The Future of Renewable Energy," Lisbon, Keynote Speaker: Dr. Ana Gomez</li>
+          <li>2020: "Climate Adaptation Strategies," Porto, Keynote Speaker: Prof. Mark Hamilton</li>
+          <li>2022: "Technological Innovations for a Greener Planet," Coimbra, Keynote Speaker: Dr. Sophia Lee</li>
+        </ul>
+      </div>
+    
+      <!-- Gallery with Modal -->
+      <div class="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="gallery-images">
+          <img src="./photos/modal1.png" alt="2019 Edition" onclick="openModal(this)">
+          <img src="./photos/images/presentation2.png" alt="2020 Edition" onclick="openModal(this)">
+          <img src="./photos/images/cc-slider-image-38-1920x1080-final.jpg" alt="2022 Edition" onclick="openModal(this)">
+        </div>
+      </div>
+    
+      <!-- Modal -->
+      <div id="modal" class="modal" style="display: none;">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-image">
+      </div>
 
-        Main Theme: "Climate Solutions for a Sustainable Future"<hr style="border-color: black;">
 
-        The Annual Climate Conference brings together experts, 
-        researchers, and industry leaders to discuss pressing issues
-         in climate science and sustainable solutions. Join us in Berlin 
-         to be part of the conversation that shapes the future.
     </div>
 
-    <br>
-    <section id="conference-schedule">
-        <h2 style="margin-left: 20px">Conference Schedule</h2>
-        <div class="schedule-tabs">
-          <button onclick="showSchedule('day1')">Day 1</button>
-          <button onclick="showSchedule('day2')">Day 2</button>
-        </div>
-      
-        <div id="day1" class="schedule-content">
-          <table>
-            <tr>
-              <th class="first-th">Time</th>
-              <th>Session</th>
-              <th class="last-th">Location</th>
-            </tr>
-            <tr>
-              <td>9:00 AM</td>
-              <td>Opening Keynote: Climate Change and Global Impact</td>
-              <td>Main Auditorium, Lisbon</td>
-            </tr>
-            <tr>
-              <td>11:00 AM</td>
-              <td>Workshop: Renewable Energy Innovations</td>
-              <td>Room A, Lisbon</td>
-            </tr>
-            <tr>
-              <td>1:00 PM</td>
-              <td>Lunch Break</td>
-              <td>Cafeteria, Lisbon</td>
-            </tr>
-            <tr>
-              <td>2:00 PM</td>
-              <td>Panel: Climate Resilience Strategies</td>
-              <td>Main Auditorium, Lisbon</td>
-            </tr>
-            <tr>
-              <td>4:00 PM</td>
-              <td>Networking Event</td>
-              <td>Outdoor Lounge, Lisbon</td>
-            </tr>
-          </table>
-        </div>
-      
-        <!-- Schedule content for Day 2 -->
-        <div id="day2" class="schedule-content" style="display: none;">
-          <table>
-            <tr>
-              <th class="first-th">Time</th>
-              <th>Session</th>
-              <th class="last-th">Location</th>
-            </tr>
-            <tr>
-              <td>10:00 AM</td>
-              <td>Keynote: Policy Solutions for Climate Action</td>
-              <td>Main Auditorium, Lisbon</td>
-            </tr>
-            <tr>
-              <td>11:30 AM</td>
-              <td>Workshop: Carbon Capture and Storage Techniques</td>
-              <td>Room B, Lisbon</td>
-            </tr>
-            <tr>
-              <td>1:00 PM</td>
-              <td>Lunch Break</td>
-              <td>Cafeteria, Lisbon</td>
-            </tr>
-            <tr>
-              <td>2:30 PM</td>
-              <td>Panel: Community-Led Climate Initiatives</td>
-              <td>Main Auditorium, Lisbon</td>
-            </tr>
-            <tr>
-              <td>5:00 PM</td>
-              <td>Closing Remarks</td>
-              <td>Main Auditorium, Lisbon</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-      <div class="conference-section">
-        <h1>About the Conference</h1>
-        <p>The Annual Climate Conference 2024 brings together experts, professionals, and enthusiasts from around the world to explore innovative solutions in "Climate Solutions for a Sustainable Future". 
-          Join us in ISEC from June 20-22, 2024 as we address current challenges, share knowledge, and collaborate for a better future.</p> <br>
-    
-        <!-- Location and Dates -->
-        <div class="conference-info">
-            <h2>Location & Dates</h2>
-            <p><strong>Location:</strong> ISEC, Coimbra, Portugal</p>
-            <p><strong>Dates:</strong> June 20-22, 2024</p>
-            <p>Explore the beautiful surroundings of Coimbra and enjoy the Nature.</p>
-        </div>
-    
-        <!-- Main Theme -->
-        <div class="conference-theme">
-            <h2>Main Theme</h2>
-            <p>This year’s theme, <strong>"Climate Solutions for a Sustainable Future"</strong>, focuses on The Annual Climate Conference brings together experts, researchers, and industry leaders to discuss pressing issues in climate science and sustainable solutions. Join us in Coimbra to be part of the conversation that shapes the future.. 
-              We aim to address key challenges in sustainability, innovation, and global collaboration.</p>
-        </div>
-    
-        <!-- Organizing Committee -->
-        <div class="organizing-committee">
-            <h2>Organizing Committee</h2>
-            <ul>
-                <li><strong>Chairperson:</strong> Dr. Emily Wong </li>
-                <li><strong>Event Director:</strong> Prof. Alex Johnson</li>
-                <li><strong>Logistics Head:</strong> Dr. Sarah Lee </li>
-            </ul>
-        </div>
-    
-        <!-- Technical Committee -->
-        <div class="technical-committee">
-            <h2>Technical Committee</h2>
-            <ul>
-                <li><strong>Head of Research:</strong> Dr. Liam Carter</li>
-                <li><strong>Technical Consultant:</strong> Prof. Rachel Greene</li>
-                <li><strong>Speaker Coordinator:</strong> Dr. Omar Nasser</li>
-            </ul>
-        </div>
-    
-        <!-- Sponsors -->
-        <div class="sponsors">
-            <h2>Sponsors</h2>
-            <div class="sponsor-logos">
-                <img src="./photos/sponsor1.jpg" alt="Sponsor 1">
-                <img src="./photos/sponsor2.jpg" alt="Sponsor 2">
-                <img src="./photos/sponsor3.jpg" alt="Sponsor 3">
-            </div>
-        </div>
-    
-        <!-- Past Editions -->
-        <div class="past-editions">
-            <h2>Past Editions</h2>
-            <p>Over the years, the [Conference Name] has hosted distinguished speakers and attendees, tackling significant topics. Highlights include:</p>
-            <ul>
-                <li>2019: [Topic/Highlight, Location, Keynote Speaker]</li>
-                <li>2020: [Topic/Highlight, Location, Keynote Speaker]</li>
-            </ul>
-        </div>
-    </div>
-    
       <br><br>
       
       <footer>
@@ -256,17 +180,6 @@
             <p>Location: Coimbra, Portugal</p>
           </div>
           
-          <div class="footer-section quick-links">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="index.html">Main</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="resources.html">Resources</a></li>
-              <li><a href="login.html">Login</a></li>
-            </ul>
-          </div>
-          
           <div class="footer-section social-media">
             <h4>Follow Us</h4>
             <ul>
@@ -276,12 +189,26 @@
             </ul>
           </div>
           
-          <div class="footer-section newsletter">
-            <h4>Subscribe to Our Newsletter</h4>
-            <form action="#">
-              <input type="email" placeholder="Your Email" required>
-              <button type="submit">Subscribe</button>
+          <div class="footer-section feedback">
+            <h4>Leave Feedback</h4>
+            <form id="feedback-form">
+              <input type="text" id="feedback-input" placeholder="Enter Feedback" required>
+              <button type="submit" id="subscribe-button">Submit Feedback</button>
             </form>
+          </div>
+          
+          <div id="success-modal" class="custom-modal">
+            <div class="custom-modal-content">
+              <span class="custom-close" onclick="toggleModal('success-modal')">&times;</span>
+              <p style="margin-top: -25px;">Thank you for your feedback!</p>
+            </div>
+          </div>
+          
+          <div id="login-modal" class="custom-modal">
+            <div class="custom-modal-content">
+              <span class="custom-close" onclick="toggleModal('login-modal')">&times;</span>
+              <p style="margin-top: -25px; color:red">Please log in to submit feedback.</p>
+            </div>
           </div>
         </div>
         
@@ -411,6 +338,49 @@ document.addEventListener('keydown', (e) => {
       }, 600);
     })
 
+
+
+    // Open the Modal
+    function openModal(image) {
+      document.getElementById("modal").style.display = "block";
+      document.getElementById("modal-image").src = image.src;
+    }
+  
+    // Close the Modal
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
     
+
+    // Event listener for the form submission
+document.getElementById('feedback-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const feedback = document.getElementById('feedback-input').value;
+
+  if (checkLoginStatus()) {
+    // If user is logged in, create the JSON object with feedback
+    const feedbackData = {
+      user: localStorage.getItem('username'),
+      feedback: feedback,
+      timestamp: new Date().toISOString()
+    };
+
+    // Retrieve existing feedbacks from localStorage
+    let feedbackList = JSON.parse(localStorage.getItem('userFeedback')) || [];
+
+    // Add the new feedback to the list
+    feedbackList.push(feedbackData);
+
+    // Save the updated feedback list back to localStorage
+    localStorage.setItem('userFeedback', JSON.stringify(feedbackList));
+
+    // Show success modal instead of alert
+    toggleModal('success-modal');
+  } else {
+    // Show login-required modal
+    toggleModal('login-modal');
+  }
+});
 </script>
 </html>

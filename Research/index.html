@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/a59b9b09ab.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="./index.js"></script>
     <script src="../index.js"></script>
@@ -46,7 +45,7 @@
       <span class="burger-menu" onclick="toggleMenu()">&#9776;</span>
       <ul class="menu">
           <li style="margin-left: 170px;"><a id="Main" href="../index.html" onclick="setActiveTab('Main')">Main</a></li>
-          <li><a id="Event" href="index.html" onclick="setActiveTab('Event')">Events</a></li>
+          <li><a id="Event" href="../Event/index.html" onclick="setActiveTab('Event')">Events</a></li>
           <li><a id="About" href="../About_us/index.html" onclick="setActiveTab('About')">About Us</a></li>
           <li><a id="Research" href="./index.html" onclick="setActiveTab('Research')">Research Papers</a></li>
       </ul>
@@ -340,18 +339,6 @@
           <p>Phone: +123 456 7890</p>
           <p>Location: Coimbra, Portugal</p>
         </div>
-
-        <div class="footer-section quick-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Main</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="login.html">Login</a></li>
-          </ul>
-        </div>
-
         <div class="footer-section social-media">
           <h4>Follow Us</h4>
           <ul>
@@ -367,12 +354,37 @@
           </ul>
         </div>
 
-        <div class="footer-section newsletter">
-          <h4>Subscribe to Our Newsletter</h4>
-          <form action="#">
-            <input type="email" placeholder="Your Email" required />
-            <button type="submit">Subscribe</button>
+        <div class="footer-section feedback">
+          <h4>Leave Feedback</h4>
+          <form id="feedback-form">
+            <input
+              type="text"
+              id="feedback-input"
+              placeholder="Enter Feedback"
+              required
+            />
+            <button type="submit" id="subscribe-button">
+              Submit Feedback
+            </button>
           </form>
+        </div>
+
+        <div id="success-modal" class="custom-modal">
+          <div class="custom-modal-content">
+            <span class="custom-close" onclick="toggleModal('success-modal')"
+              >&times;</span
+            >
+            <p style="margin-top: -25px">Thank you for your feedback!</p>
+          </div>
+        </div>
+
+        <div id="login-modal" class="custom-modal">
+          <div class="custom-modal-content">
+            <span class="custom-close" onclick="toggleModal('login-modal')"
+              >&times;</span
+            >
+            <p style="margin-top: -25px; color:red">Please log in to submit feedback.</p>
+          </div>
         </div>
       </div>
 
@@ -426,6 +438,53 @@
 
     // END scroll-up
     dropdown();
+
+
+       // ===============================================
+       function checkLoginStatus() {
+        const usernameValue = localStorage.getItem("username");
+        return usernameValue;
+      }
+  
+      // Function to toggle the modal visibility (by ID)
+      function toggleModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.toggle("show"); // Toggle the 'show' class to show or hide the modal
+      }
+  
+      // Event listener for the form submission
+      document
+        .getElementById("feedback-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+  
+          const feedback = document.getElementById("feedback-input").value;
+  
+          if (checkLoginStatus()) {
+            // If user is logged in, create the JSON object with feedback
+            const feedbackData = {
+              user: localStorage.getItem("username"),
+              feedback: feedback,
+              timestamp: new Date().toISOString(),
+            };
+  
+            // Retrieve existing feedbacks from localStorage
+            let feedbackList =
+              JSON.parse(localStorage.getItem("userFeedback")) || [];
+  
+            // Add the new feedback to the list
+            feedbackList.push(feedbackData);
+  
+            // Save the updated feedback list back to localStorage
+            localStorage.setItem("userFeedback", JSON.stringify(feedbackList));
+  
+            // Show success modal instead of alert
+            toggleModal("success-modal");
+          } else {
+            // Show login-required modal
+            toggleModal("login-modal");
+          }
+        });
 
   </script>
 </body>

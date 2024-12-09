@@ -27,7 +27,11 @@
     left: 15px; 
     z-index: 999;
 }
-
+.left svg{
+    width: 25px;
+    height: 25px;
+    fill: white;
+}
 .center {
     height: 200px;
     display: flex;
@@ -58,7 +62,6 @@
 }
 
 .RegisterForm form {
-    min-width: 400px;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -125,8 +128,16 @@
         left: 15px;
     }
 }
-
 @media (max-width: 480px) {
+    .RegisterForm input {
+        font-size: 16px;
+        width: 90%;
+    }
+    .RegisterForm form {
+        width: 90%;
+    }
+}
+@media (max-width: 320px) {
     /* Further adjustments for very small screens */
     .top {
         height: 60px; /* Adjust top bar height */
@@ -139,7 +150,7 @@
     }
 
     .center img {
-        width: 120px;
+        width: 60%;
     }
 
     .RegisterForm {
@@ -150,21 +161,24 @@
     .RegisterForm form {
         display: flex;
         align-items: center;
+        width: 80%;
     }
 
     .RegisterForm button {
-        width: 100px;
+        width: 90%;
         font-size: 16px;
-        height: 45px;
+        min-height: 45px;
+        word-break: break-all;
     }
 
     .RegisterForm input {
         font-size: 16px;
-        width: 70%;
+        width: 90%;
     }
 
     .RegisterForm label {
         font-size: 16px;
+        word-break: break-all;
     }
     .RegisterForm form span{
         font-size: 16px !important;

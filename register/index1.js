@@ -84,38 +84,36 @@ document.getElementById('submit').onclick = function(){
 
 
     if (x) {
-        var users = {
-            "user1": {
-                "email": "giorgi.kazishvili@gau.edu.ge",
-                "password": "12345678",
-                "username": "giorgi"
-            },
-            "user2": {
-                "email": "luka.gulverdashvili@gau.edu.ge",
-                "password": "12341234",
-                "username": "luka"
-            }
-        };
+        const users = JSON.parse(localStorage.getItem('users'))
         let isUserFound = false;
-    
-        Object.values(users).forEach(user => {
-            if (user.email === email.value && user.password === password.value) {
-                isUserFound = true;
-            }
-        });
-        if (!isUserFound) {
-        registerUser(username.value, email.value, password.value);
-        window.location.href = './../login_page/index.html';
-
+        const alert = document.getElementById('alert6')
+        
+        if(users){
+            Object.values(users).forEach(user => {
+                if (user.email === email.value) {
+                    isUserFound = true;
+                }
+            });
+        }else{
+            isUserFound = false;
         }
+        
+        if (!isUserFound) {
+            registerUser(username.value, email.value, password.value);
+            window.location.href = './../login_page/index.html';
+            alert.style.display = 'none';
+        }else{
+            alert.style.display = 'block';
+        }
+
     }
 
-    var users = JSON.parse(localStorage.getItem('users')) || {};
-
+    
     function registerUser(username, email, password) {
+        var users = JSON.parse(localStorage.getItem('users')) || {};
         const newUserKey = `user${Object.keys(users).length + 1}`;
         users[newUserKey] = {
-            "username": username,
+            "username": username,   
             "email": email,
             "password": password
         };

@@ -19,10 +19,10 @@
     width: 100%;
     height: 800px;
     margin-bottom: 20px;
+    margin-top: 51px;
   }
   body{
     overflow-x: hidden;
-
   }
   
   .wrapper .img {
@@ -89,12 +89,9 @@
 
   @media (min-width: 1280px) {
     .wrapper{
-        width: 80%;
-        margin: auto;
-    margin-bottom: 20px;
-    }
-    .schedule-content table{
-        width: 80%;
+        width: 90%;
+        margin: 70px auto;
+        margin-bottom: 20px;
     }
 
   }
@@ -130,7 +127,7 @@
 
 /*#region Navbar Styles */
 .menu-container {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
@@ -184,6 +181,8 @@ a.active {
 .menu li {
     position: relative;
     padding: 14px;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 .menu > li:hover {
@@ -216,6 +215,7 @@ a.active {
     color: white;
     padding: 10px;
     transition: transform 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .burger-menu.open {
@@ -290,6 +290,7 @@ a.active {
     text-align: center;
     margin-bottom: 20px;
     color: #1d3a67;
+    font-size: 25px;
 }
 
 .conference-info, .conference-theme, .organizing-committee, .technical-committee, .sponsors, .past-editions, .image-gallery {
@@ -300,6 +301,48 @@ a.active {
     list-style: none;
 }
 
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        margin-top: 15%;
+      }
+      
+      .close {
+        position: absolute;
+        top: 50px;
+        right: 35px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    
+      .gallery-images img {
+        width: 200px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: transform 0.2s;
+      }
+    
+      .gallery-images img:hover {
+        transform: scale(1.05);
+      }
 .sponsor-logos img {
     width: 20%;
     height: auto;
@@ -322,35 +365,7 @@ footer {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 20px;
-}
-.quick-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.quick-links ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    width: 80%;
-}
-
-.quick-links ul li {
-    list-style: none;
-    margin-bottom: 10px;
-}
-
-.quick-links ul li a {
-    padding: 8px 10px;
-    color: #ddd;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
-}
-
-.quick-links ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #fff;
+    word-break: break-all;
 }
 
 .footer-section h4 {
@@ -365,16 +380,26 @@ footer {
 .footer-section a:hover {
     color: #fff;
 }
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .social-media ul li {
     list-style: none;
 }
+.social-media a{
+    font-size: 1.7em;
+}
 .social-media ul {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
-.newsletter input {
+.feedback input {
     background: none;
     color: white;
     border: none;
@@ -383,11 +408,11 @@ footer {
     outline: none;
 }
 
-.newsletter input::placeholder {
+.feedback input::placeholder {
     color: white;
 }
 
-.newsletter button {
+.feedback button {
     background: none;
     padding: 7px;
     border: none;
@@ -397,72 +422,58 @@ footer {
     margin-top: 15px;
 }
 
-.newsletter button:hover {
+.feedback button:hover {
     background-color: rgba(255, 255, 255, 0.3);
     color: #fff;
 }
+/* Custom Modal Styles */
+.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    word-break: auto-phrase;
+  }
+  
+  .custom-modal.show {
+    display: flex; /* Show the modal when the 'show' class is added */
+  }
+  
+  .custom-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+    color: blue;
+    font-weight: 600;
+  }
+  
+  .custom-close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    top: -20px;
+    right: -130px;
+    cursor: pointer;
+  }
 
 .footer-bottom {
     color: #aaa;
     margin: auto;
+    word-break: break-word;
 }
 
 
-/* Event Schedule Styles */
-.Event {
-    /* padding: 20px 100px 20px 15px; */
-    padding: 20px 20px 20px 15px;
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-    background-color: #8dc4ff;
-    border-radius: 25px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
 
-.schedule-tabs button {
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: none;
-    background-color: #2775ce;
-    color: white;
-}
-.schedule-tabs  {
-  margin: 15px;
-}
-.schedule-tabs button:hover {
-    background-color: #005ea8;
-}
 
-.schedule-content table {
-    border-collapse: collapse;
-    margin: auto;
-    min-width: 350px;
-}
-
-.schedule-content th, .schedule-content td {
-    padding: 10px;
-    border: 2px solid black;
-}
-
-.schedule-content tr:nth-child(even) {
-    background-color: #bdd4f8;
-}
-@media (max-width: 350px) {
-    .schedule-content {
-        overflow-x: scroll;
-    }
-    .schedule-content td{
-        padding: 5px;
-        font-size: 12px;
-    }
-    .schedule-content table {
-        border-collapse: collapse;
-        margin: auto;
-        min-width: 350px;
-    }
-}  
 .progress-wrap {
     position: fixed;
     right: 25px;
@@ -781,7 +792,7 @@ footer {
   }
 
   .footer-section h4{
-    margin-bottom:20px;
+    margin-bottom:0;
   }
 }
 
@@ -800,13 +811,10 @@ footer {
     height: 320px;
     width: 320px;
   }
-  .quick-links{
-    align-items: flex-start;
-  }
-  .quick-links ul{
-    justify-content: flex-start;
-  }
 
+  #feedback-form input{
+    width: 90%;
+  }
 }
 
 @media (max-width: 320px) {
@@ -818,3 +826,4 @@ footer {
         scale: 0.7;
     }
 }
+

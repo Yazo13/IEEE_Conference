@@ -1,5 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+    //   var users = {
+    //     "user1": {
+    //         "username": "giorgi",
+    //         "email": "giorgi.kazishvili@gau.edu.ge",
+    //         "password": "12345678",
+    //     },
+    //     "user2": {
+    //         "username": "luka",
+    //         "email": "luka.gulverdashvili@gau.edu.ge",
+    //         "password": "12341234",
+    //     }
+    // };
+    // localStorage.setItem('users', JSON.stringify(users));
+  
     const usernameValue = localStorage.getItem('username');
     const usernameElement = document.getElementById('Username');
 
@@ -90,3 +103,39 @@ document.addEventListener("DOMContentLoaded", function () {
         activeButton.classList.add('active');
     }
 } 
+
+
+//--------------------- LEAVE FEEDBACK -----------------------
+
+function checkLoginStatus() {
+  const usernameValue = localStorage.getItem('username');
+  return usernameValue;
+}
+
+// Function to toggle the modal visibility (by ID)
+function toggleModal(modalId) {
+  const modal = document.getElementById(modalId);
+  modal.classList.toggle('show');  // Toggle the 'show' class to show or hide the modal
+}
+
+
+
+
+function deleteUser(usernameOrEmail) {
+  // Retrieve users from localStorage
+  let users = JSON.parse(localStorage.getItem('users')) || {};
+
+  // Find the user key based on the provided username or email
+  const userKey = Object.keys(users).find(key => 
+      users[key].username === usernameOrEmail || users[key].email === usernameOrEmail
+  );
+
+  // If the user is found, delete them from the object
+  if (userKey) {
+      delete users[userKey]; // Delete the user from the users object
+      localStorage.setItem('users', JSON.stringify(users)); // Save updated users back to localStorage
+      console.log(`User ${usernameOrEmail} deleted successfully.`);
+  } else {
+      console.log(`User ${usernameOrEmail} not found.`);
+  }
+}

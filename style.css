@@ -447,7 +447,7 @@ footer {
   
   .custom-modal-content {
     background-color: white;
-    padding: 20px;
+    padding: 0px 15px 15px;
     border-radius: 5px;
     text-align: center;
     width: 300px;
@@ -459,9 +459,9 @@ footer {
     color: #aaa;
     font-size: 28px;
     font-weight: bold;
-    position: relative;
-    top: -20px;
-    right: -130px;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 15px;
     cursor: pointer;
   }
 

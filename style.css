@@ -57,6 +57,8 @@
     transform: translateX(-50%);
     z-index: 99;
     display: flex;
+    width: 100%;
+    justify-content: center;
   }
   
   .wrapper .sliders label {

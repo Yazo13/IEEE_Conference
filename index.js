@@ -105,21 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
 } 
 
 
-//--------------------- LEAVE FEEDBACK -----------------------
-
-function checkLoginStatus() {
-  const usernameValue = localStorage.getItem('username');
-  return usernameValue;
-}
-
-// Function to toggle the modal visibility (by ID)
-function toggleModal(modalId) {
-  const modal = document.getElementById(modalId);
-  modal.classList.toggle('show');  // Toggle the 'show' class to show or hide the modal
-}
-
-
-
 
 function deleteUser(usernameOrEmail) {
   // Retrieve users from localStorage
@@ -139,3 +124,47 @@ function deleteUser(usernameOrEmail) {
       console.log(`User ${usernameOrEmail} not found.`);
   }
 }
+
+
+//--------------------- LEAVE FEEDBACK -----------------------
+
+function checkLoginStatus() {
+  const usernameValue = localStorage.getItem('username');
+  return usernameValue;
+}
+
+// Function to toggle the modal visibility (by ID)
+function toggleModal(modalId) {
+  const modal = document.getElementById(modalId);
+  modal.classList.toggle('show');  // Toggle the 'show' class to show or hide the modal
+}
+    // Event listener for the form submission
+document.getElementById('feedback-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const feedback = document.getElementById('feedback-input').value;
+
+  if (checkLoginStatus()) {
+    // If user is logged in, create the JSON object with feedback
+    const feedbackData = {
+      user: localStorage.getItem('username'),
+      feedback: feedback,
+      timestamp: new Date().toISOString()
+    };
+
+    // Retrieve existing feedbacks from localStorage
+    let feedbackList = JSON.parse(localStorage.getItem('userFeedback')) || [];
+
+    // Add the new feedback to the list
+    feedbackList.push(feedbackData);
+
+    // Save the updated feedback list back to localStorage
+    localStorage.setItem('userFeedback', JSON.stringify(feedbackList));
+
+    // Show success modal instead of alert
+    toggleModal('success-modal');
+  } else {
+    // Show login-required modal
+    toggleModal('login-modal');
+  }
+});

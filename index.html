@@ -351,36 +351,5 @@ document.addEventListener('keydown', (e) => {
       document.getElementById("modal").style.display = "none";
     }
     
-
-    // Event listener for the form submission
-document.getElementById('feedback-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const feedback = document.getElementById('feedback-input').value;
-
-  if (checkLoginStatus()) {
-    // If user is logged in, create the JSON object with feedback
-    const feedbackData = {
-      user: localStorage.getItem('username'),
-      feedback: feedback,
-      timestamp: new Date().toISOString()
-    };
-
-    // Retrieve existing feedbacks from localStorage
-    let feedbackList = JSON.parse(localStorage.getItem('userFeedback')) || [];
-
-    // Add the new feedback to the list
-    feedbackList.push(feedbackData);
-
-    // Save the updated feedback list back to localStorage
-    localStorage.setItem('userFeedback', JSON.stringify(feedbackList));
-
-    // Show success modal instead of alert
-    toggleModal('success-modal');
-  } else {
-    // Show login-required modal
-    toggleModal('login-modal');
-  }
-});
 </script>
 </html>

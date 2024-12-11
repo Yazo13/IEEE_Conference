@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loading.style.display = "none"; // Hide loading screen
     main.style.display = "flex";
     // Show main content
-  }, 600);
+  }, 1000);
 });
 
 

@@ -460,6 +460,8 @@ footer {
   opacity: 0;
   visibility: hidden;
   transform: translateY(15px);
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .progress-wrap.active-progress {

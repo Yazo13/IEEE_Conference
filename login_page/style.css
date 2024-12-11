@@ -27,6 +27,7 @@
     position: absolute;
     left: 15px; 
     z-index: 999;
+    -webkit-tap-highlight-color: transparent;
 }
 .left svg{
     width: 25px;

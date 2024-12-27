@@ -108,7 +108,7 @@ document.getElementById('submit').onclick = function(){
 
     }
 
-    
+    // Actual Registration
     function registerUser(username, email, password) {
         var users = JSON.parse(localStorage.getItem('users')) || {};
         const newUserKey = `user${Object.keys(users).length + 1}`;

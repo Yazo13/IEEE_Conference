@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+//#region Logic When Site Is Loaded
+  document.addEventListener("DOMContentLoaded", function () {
+  //#region Example Of LocalStorage
     //   var users = {
     //     "user1": {
     //         "username": "giorgi",
@@ -12,13 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
     //     }
     // };
     // localStorage.setItem('users', JSON.stringify(users));
-  
+  //#endregion
+
+    // Get Element & Value "Username" 
     const usernameValue = localStorage.getItem('username');
     const usernameElement = document.getElementById('Username');
 
+    // Cheking If They Exist & Putting Value To Element
     if (usernameElement && usernameValue) {
       usernameElement.innerText = usernameValue;
-      localStorage.setItem('username', usernameValue);
     }
 
     // Get the box elements for Register and Logout
@@ -37,19 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
       if (box2) box2.style.display = 'none'; // Hide Logout button
     }
 
-    // Add event listener for logout action (optional)
+    // logout action
     const logoutLink = document.querySelector('.Register1');
     if (logoutLink) {
       logoutLink.addEventListener('click', function () {
         localStorage.removeItem('xIsTrue'); // Remove the state on logout
-        localStorage.removeItem('username');
-        // Optionally redirect to the homepage or login page after logout
+        localStorage.removeItem('username'); // Remove username on logout
+        // redirect to the homepage after logout
         window.location.href = './index.html';
       });
     }
 
 
-    // Tab state from localStorage
+    // Tabs Changing
     const activeTabId = localStorage.getItem("activeTabId");
     if (activeTabId) {
       document.getElementById(activeTabId)?.classList.add("active");
@@ -63,7 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+//#endregion
 
+//#region Burger-Menu Logic
   function toggleMenu() {
     const menu = document.querySelector('.menu');
     const register = document.querySelector('.register');
@@ -72,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menu.classList.toggle('active');
     register.classList.toggle('active');
     burgerIcon.classList.toggle('open');
-  
+
     // Toggle between burger icon and "X"
     if (burgerIcon.classList.contains('open')) {
         burgerIcon.innerHTML = "&times;"; 
@@ -82,47 +88,25 @@ document.addEventListener("DOMContentLoaded", function () {
         burgerIcon.style.fontSize = '28px';
     }
   }
+//#endregion
 
+//#region Logic In Case If We Need Delete Of User
+  function deleteUser(usernameOrEmail) {
+    // Retrieve users from localStorage
+    let users = JSON.parse(localStorage.getItem('users')) || {};
 
-  function showSchedule(day) {
-    const scheduleContents = document.querySelectorAll('.schedule-content');
-    scheduleContents.forEach(content => {
-        content.style.display = 'none';
-    });
+    // Find the user key based on the provided username or email
+    const userKey = Object.keys(users).find(key => 
+        users[key].username === usernameOrEmail || users[key].email === usernameOrEmail
+    );
 
-    const selectedDay = document.getElementById(day);
-    selectedDay.style.display = 'block';
-
-    const buttons = document.querySelectorAll('.schedule-tabs button');
-    buttons.forEach(button => {
-        button.classList.remove('active');
-    });
-
-    const activeButton = Array.from(buttons).find(button => button.innerText.toLowerCase() === day.replace('day', '').toUpperCase());
-    if (activeButton) {
-        activeButton.classList.add('active');
+    // If the user is found, delete them from the object
+    if (userKey) {
+        delete users[userKey]; // Delete the user from the users object
+        localStorage.setItem('users', JSON.stringify(users)); // Save updated users back to localStorage
+        console.log(`User ${usernameOrEmail} deleted successfully.`);
+    } else {
+        console.log(`User ${usernameOrEmail} not found.`);
     }
-} 
-
-
-
-function deleteUser(usernameOrEmail) {
-  // Retrieve users from localStorage
-  let users = JSON.parse(localStorage.getItem('users')) || {};
-
-  // Find the user key based on the provided username or email
-  const userKey = Object.keys(users).find(key => 
-      users[key].username === usernameOrEmail || users[key].email === usernameOrEmail
-  );
-
-  // If the user is found, delete them from the object
-  if (userKey) {
-      delete users[userKey]; // Delete the user from the users object
-      localStorage.setItem('users', JSON.stringify(users)); // Save updated users back to localStorage
-      console.log(`User ${usernameOrEmail} deleted successfully.`);
-  } else {
-      console.log(`User ${usernameOrEmail} not found.`);
   }
-}
-
-
+//#endregion

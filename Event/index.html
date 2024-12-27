@@ -245,37 +245,49 @@
           </div>
         </div>
 
-              <!-- Registration Section -->
-<div id="registration" class="registration-section">
-  <!-- Pricing -->
-  <div>
-    <h2>Event Prices</h2>
-      <p>Standard Registration: €100</p>
-      <p>Student Registration: €50</p>
-      <p>Early Bird Registration (until May 31): €80</p>
-  </div>
-  <div>
-    <!-- Location and Facilities -->
-    <h2>Event Location</h2>
-      <p>The event will take place at the Coimbra Conference Center, Portugal.</p>
-      <p>Address: Rua de Coimbra, 123, Portugal</p>
-      <p>Facilities: Free Wi-Fi, parking, and cafeteria</p>
-  </div>
-  <div>
-      <!-- Transportation -->
-      <h2>How to Get There</h2>
-      <p>Nearest Airport: Lisbon International Airport (1-hour drive).</p>
-      <p>Public Transport: Train to Coimbra Station, then Bus #42 to the venue.</p>
-  </div>
+        <!-- Registration Section -->
+        <div id="registration" class="registration-section">
+          <!-- Pricing -->
+          <div>
+            <h2>Event Prices</h2>
+            <p>Standard Registration: €100</p>
+            <p>Student Registration: €50</p>
+            <p>Early Bird Registration (until May 31): €80</p>
+          </div>
+          <div>
+            <!-- Location and Facilities -->
+            <h2>Event Location</h2>
+            <p>
+              The event will take place at the Coimbra Conference Center,
+              Portugal.
+            </p>
+            <p>Address: Rua de Coimbra, 123, Portugal</p>
+            <p>Facilities: Free Wi-Fi, parking, and cafeteria</p>
+          </div>
+          <div>
+            <!-- Transportation -->
+            <h2>How to Get There</h2>
+            <p>Nearest Airport: Lisbon International Airport (1-hour drive).</p>
+            <p>
+              Public Transport: Train to Coimbra Station, then Bus #42 to the
+              venue.
+            </p>
+          </div>
 
-  <!-- Touristic Material (Slideshow) -->
-  <h2>Slideshow</h2>
-  <div class="slideshow">
-    <img src="../photos/images/cc-slider-image-38-1920x1080-final.jpg" alt="Coimbra University">
-    <img src="../photos/images/convention_center.jpg" alt="Mondego River">
-    <img src="../photos/images/networking.jpg" alt="Local Cuisine">
-  </div>
-</div>
+          <!-- Touristic Material (Slideshow) -->
+          <h2>Slideshow</h2>
+          <div class="slideshow">
+            <img
+              src="../photos/images/cc-slider-image-38-1920x1080-final.jpg"
+              alt="Coimbra University"
+            />
+            <img
+              src="../photos/images/convention_center.jpg"
+              alt="Mondego River"
+            />
+            <img src="../photos/images/networking.jpg" alt="Local Cuisine" />
+          </div>
+        </div>
 
         <!-- Trigger Button -->
         <div class="contact-modal-trigger">
@@ -400,7 +412,9 @@
               <span class="custom-close" onclick="toggleModal('login-modal')"
                 >&times;</span
               >
-              <p style="margin-top: -25px; color:red">Please log in to submit feedback.</p>
+              <p style="margin-top: -25px; color: red">
+                Please log in to submit feedback.
+              </p>
             </div>
           </div>
         </div>
@@ -411,7 +425,7 @@
     </div>
   </body>
   <script>
-    /// Loading screen logic
+    //#region Loading Page Logic
     document.addEventListener("DOMContentLoaded", function () {
       let loading = document.getElementById("loading");
       let main = document.getElementById("main");
@@ -424,8 +438,9 @@
         main.style.display = "flex";
       }, 1000);
     });
+    //#endregion
 
-    // ===============================================
+    //#region Leave Feedback Logic
     function checkLoginStatus() {
       const usernameValue = localStorage.getItem("username");
       return usernameValue;
@@ -436,7 +451,6 @@
       const modal = document.getElementById(modalId);
       modal.classList.toggle("show"); // Toggle the 'show' class to show or hide the modal
     }
-
     // Event listener for the form submission
     document
       .getElementById("feedback-form")
@@ -470,8 +484,18 @@
           toggleModal("login-modal");
         }
       });
+    //#endregion
 
-    // Show or hide the "Other Reason" input dynamically
+    //#region Contact Us Modal Logic
+    const modal = document.getElementById("contact-modal");
+    const openButton = document.getElementById("open-contact-form");
+    const closeButton = document.querySelector(".close-button");
+
+    // Open the modal
+    openButton.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+    // Show or hide the "Other Reason" input dynamically In form
     function toggleOtherReasonInput() {
       const reasonSelect = document.getElementById("reason");
       const otherReasonContainer = document.getElementById(
@@ -484,16 +508,6 @@
         otherReasonContainer.style.display = "none";
       }
     }
-
-    // Modal Logic
-    const modal = document.getElementById("contact-modal");
-    const openButton = document.getElementById("open-contact-form");
-    const closeButton = document.querySelector(".close-button");
-
-    // Open the modal
-    openButton.addEventListener("click", () => {
-      modal.style.display = "flex";
-    });
 
     // Close the modal
     closeButton.addEventListener("click", () => {
@@ -536,97 +550,46 @@
           modal.style.display = "none";
         }, 3000);
       });
+    //#endregion
 
+    //#region Little Pic SlideShow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slideshow img");
 
-      // Event listener for the form submission
-document.getElementById('feedback-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+    function showSlides() {
+      slides.forEach((slide, index) => {
+        slide.style.display = index === slideIndex ? "block" : "none";
+      });
+      slideIndex = (slideIndex + 1) % slides.length; // Loop back to the first slide
+    }
 
-  const feedback = document.getElementById('feedback-input').value;
+    setInterval(showSlides, 2000);
+    //#endregion
 
-  if (checkLoginStatus()) {
-    // If user is logged in, create the JSON object with feedback
-    const feedbackData = {
-      user: localStorage.getItem('username'),
-      feedback: feedback,
-      timestamp: new Date().toISOString()
-    };
+    //#region Table Change Logic
+    function showSchedule(day) {
+      const scheduleContents = document.querySelectorAll(".schedule-content");
+      scheduleContents.forEach((content) => {
+        content.style.display = "none";
+      });
 
-    // Retrieve existing feedbacks from localStorage
-    let feedbackList = JSON.parse(localStorage.getItem('userFeedback')) || [];
+      const selectedDay = document.getElementById(day);
+      selectedDay.style.display = "block";
 
-    // Add the new feedback to the list
-    feedbackList.push(feedbackData);
+      const buttons = document.querySelectorAll(".schedule-tabs button");
+      buttons.forEach((button) => {
+        button.classList.remove("active");
+      });
 
-    // Save the updated feedback list back to localStorage
-    localStorage.setItem('userFeedback', JSON.stringify(feedbackList));
-
-    // Show success modal instead of alert
-    toggleModal('success-modal');
-  } else {
-    // Show login-required modal
-    toggleModal('login-modal');
-  }
-});
-
-
-
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slideshow img');
-
-function showSlides() {
-  slides.forEach((slide, index) => {
-    slide.style.display = index === slideIndex ? 'block' : 'none';
-  });
-  slideIndex = (slideIndex + 1) % slides.length; // Loop back to the first slide
-}
-
-setInterval(showSlides, 2000)
-
-
-
-
-//--------------------- LEAVE FEEDBACK -----------------------
-
-function checkLoginStatus() {
-  const usernameValue = localStorage.getItem('username');
-  return usernameValue;
-}
-
-// Function to toggle the modal visibility (by ID)
-function toggleModal(modalId) {
-  const modal = document.getElementById(modalId);
-  modal.classList.toggle('show');  // Toggle the 'show' class to show or hide the modal
-}
-    // Event listener for the form submission
-document.getElementById('feedback-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const feedback = document.getElementById('feedback-input').value;
-
-  if (checkLoginStatus()) {
-    // If user is logged in, create the JSON object with feedback
-    const feedbackData = {
-      user: localStorage.getItem('username'),
-      feedback: feedback,
-      timestamp: new Date().toISOString()
-    };
-
-    // Retrieve existing feedbacks from localStorage
-    let feedbackList = JSON.parse(localStorage.getItem('userFeedback')) || [];
-
-    // Add the new feedback to the list
-    feedbackList.push(feedbackData);
-
-    // Save the updated feedback list back to localStorage
-    localStorage.setItem('userFeedback', JSON.stringify(feedbackList));
-
-    // Show success modal instead of alert
-    toggleModal('success-modal');
-  } else {
-    // Show login-required modal
-    toggleModal('login-modal');
-  }
-});
+      const activeButton = Array.from(buttons).find(
+        (button) =>
+          button.innerText.toLowerCase() ===
+          day.replace("day", "").toUpperCase()
+      );
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
+    }
+    //#endregion
   </script>
 </html>

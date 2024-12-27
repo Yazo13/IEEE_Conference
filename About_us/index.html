@@ -12,7 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
       rel="stylesheet"
     />
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css' rel='stylesheet' />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/x-icon" href="../photos/favIcon.png" />
     <script src="../index.js"></script>
     <title>Document</title>
@@ -44,7 +47,7 @@
       <div class="menu-container">
         <span class="burger-menu" onclick="toggleMenu()">&#9776;</span>
         <ul class="menu">
-          <li style="margin-left: 170px;">
+          <li style="margin-left: 170px">
             <a id="Main" href="../index.html" onclick="setActiveTab('Main')"
               >Main</a
             >
@@ -137,7 +140,6 @@
             ></iframe>
           </div>
         </div>
-        
       </div>
       <footer>
         <div class="footer-content">
@@ -191,7 +193,9 @@
               <span class="custom-close" onclick="toggleModal('login-modal')"
                 >&times;</span
               >
-              <p style="margin-top: -25px; color:red">Please log in to submit feedback.</p>
+              <p style="margin-top: -25px; color: red">
+                Please log in to submit feedback.
+              </p>
             </div>
           </div>
         </div>
@@ -203,7 +207,7 @@
     </div>
   </body>
   <script>
-    /// Loading screen logic
+    //#region Loading Page Logic
     document.addEventListener("DOMContentLoaded", function () {
       let loading = document.getElementById("loading");
       let main = document.getElementById("main");
@@ -217,54 +221,52 @@
         main.style.flexDirection = "column";
       }, 1000);
     });
+    //#endregion
 
+    //#region Leave Feedback
+    function checkLoginStatus() {
+      const usernameValue = localStorage.getItem("username");
+      return usernameValue;
+    }
 
-       // ===============================================
-       function checkLoginStatus() {
-        const usernameValue = localStorage.getItem("username");
-        return usernameValue;
-      }
-  
-      // Function to toggle the modal visibility (by ID)
-      function toggleModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.toggle("show"); // Toggle the 'show' class to show or hide the modal
-      }
-  
-      // Event listener for the form submission
-      document
-        .getElementById("feedback-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-  
-          const feedback = document.getElementById("feedback-input").value;
-  
-          if (checkLoginStatus()) {
-            // If user is logged in, create the JSON object with feedback
-            const feedbackData = {
-              user: localStorage.getItem("username"),
-              feedback: feedback,
-              timestamp: new Date().toISOString(),
-            };
-  
-            // Retrieve existing feedbacks from localStorage
-            let feedbackList =
-              JSON.parse(localStorage.getItem("userFeedback")) || [];
-  
-            // Add the new feedback to the list
-            feedbackList.push(feedbackData);
-  
-            // Save the updated feedback list back to localStorage
-            localStorage.setItem("userFeedback", JSON.stringify(feedbackList));
-  
-            // Show success modal instead of alert
-            toggleModal("success-modal");
-          } else {
-            // Show login-required modal
-            toggleModal("login-modal");
-          }
-        });
+    // Function to toggle the modal visibility (by ID)
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.toggle("show"); // Toggle the 'show' class to show or hide the modal
+    }
+    // Event listener for the form submission
+    document
+      .getElementById("feedback-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
 
+        const feedback = document.getElementById("feedback-input").value;
 
+        if (checkLoginStatus()) {
+          // If user is logged in, create the JSON object with feedback
+          const feedbackData = {
+            user: localStorage.getItem("username"),
+            feedback: feedback,
+            timestamp: new Date().toISOString(),
+          };
+
+          // Retrieve existing feedbacks from localStorage
+          let feedbackList =
+            JSON.parse(localStorage.getItem("userFeedback")) || [];
+
+          // Add the new feedback to the list
+          feedbackList.push(feedbackData);
+
+          // Save the updated feedback list back to localStorage
+          localStorage.setItem("userFeedback", JSON.stringify(feedbackList));
+
+          // Show success modal instead of alert
+          toggleModal("success-modal");
+        } else {
+          // Show login-required modal
+          toggleModal("login-modal");
+        }
+      });
+    //#endregion
   </script>
 </html>
